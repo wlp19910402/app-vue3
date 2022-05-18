@@ -18,7 +18,10 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHistory(process.env.BASE_URL),
+  // 使用history模式，并且兼容独立运行
+  // 当使用微应用运行的时候，使用`/base`为baseUrl，因为我们在主应用配置的activeRule是`/base`
+  history: createWebHistory(window && window.__POWERED_BY_QIANKUN__ ? '/app-vue3/' : '/'),
   routes,
 });
 

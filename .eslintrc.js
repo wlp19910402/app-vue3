@@ -3,15 +3,24 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/airbnb',
-  ],
+  extends: ['plugin:vue/vue3-essential', '@vue/airbnb'],
   parserOptions: {
     parser: '@babel/eslint-parser',
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/no-explicit-any': ['off'],
+    'no-underscore-dangle': 'off',
+    camelcase: [
+      'error',
+      {
+        allow: [
+          '__webpack_public_path__',
+          '__INJECTED_PUBLIC_PATH_BY_QIANKUN__',
+          '__POWERED_BY_QIANKUN__',
+        ],
+      },
+    ],
   },
 };
